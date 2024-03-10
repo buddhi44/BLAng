@@ -1,0 +1,35 @@
+/*
+Template Name: Velzon - Admin & Dashboard Template
+Author: Themesbrand
+Website: https://themesbrand.com/
+Contact: support@themesbrand.com
+File: Custom Css File
+*/
+.bg-hover-gr10:hover {
+    background-color: rgb(var(--vz-body-bg-rgb));
+}
+
+button.tool-icon {
+    border: 0px;
+    height: 20px;
+    width: 20px;
+    background-color: transparent var(--vz-btn-close-bg) center/1em auto no-repeat;
+}
+
+.btn-text-left
+{
+    text-align:left;
+}
+
+.no-child-border .ng-select-container {
+ 
+}
+
+.no-child-border input {
+
+}
+
+
+.right {
+    text-align:right;
+}

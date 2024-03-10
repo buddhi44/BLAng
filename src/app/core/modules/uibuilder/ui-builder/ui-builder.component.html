@@ -1,0 +1,82 @@
+<div class="col-xl-12" id="card-none2">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex align-items-center">
+                <div class="flex-grow-1">
+                    <h6 class="card-title mb-0">Sales Order</h6>
+                </div>
+                <div class="flex-shrink-0">
+                    <ng-container *ngIf="arrButtonSection  && arrButtonSection.children">
+                        <ul class="list-inline card-toolbar-menu d-flex align-items-center mb-0">
+
+                            <li *ngFor="let item of arrButtonSection.children;" class="list-inline-item {{item.parentCssClass}}">
+                                <app-tool-button *ngIf="item.elementType==='Button'" [uiObject]="item" [def]="def"></app-tool-button>
+                            </li>
+                        </ul>
+
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="card-body collapse show boxed-card" id="collapseExample2">
+            <div class="border-info stnd-info-area" *ngIf="def.errorMessage.successMessage.length">{{def.errorMessage.successMessage}}</div>
+     
+            <div class="stnd-grid-det">
+                <div class="row">
+                    <app-error-alert [def]="def"></app-error-alert>
+                    <ng-container *ngIf="arrHeaderSection1  && arrHeaderSection1.children">
+
+                        <div *ngFor="let item of arrHeaderSection1.children" class="col-md-{{item.width}}">
+                            <div class="mb-3">
+                                <label for="{{item.elementCaption}}" class="form-label col-form-label-sm">{{item.elementCaption}}</label>
+                                <app-text-box *ngIf="item.elementType==='TextBox' || item.elementType==='ReadOnlyTextBox'"
+                                              [uiObject]="item" [def]="def"></app-text-box>
+
+                                <app-address-select *ngIf="item.elementType==='Cmb' && item.elementID==='Address'" [uiObject]="item" [def]="def">
+                                </app-address-select>
+                                <app-codeBase-select *ngIf="item.elementType==='Cmb' && item.elementID==='CodeBase'" [uiObject]="item" [def]="def">
+                                </app-codeBase-select>
+                                <app-date-picker *ngIf="item.elementType==='DatePicker'" [uiObject]="item" [def]="def">
+                                </app-date-picker>
+
+
+                            </div>
+                        </div>
+                    </ng-container>
+
+
+                    <section>
+                        <!-- Small Tables -->
+                        <ng-container *ngIf="arrDetailGrid">
+                            <app-line-item-grid [uiObject]="arrDetailGrid" [def]="def"></app-line-item-grid>
+                        </ng-container>
+                    </section>
+                </div>
+                <!-- Small Tables -->
+                <!-- end table responsive -->
+
+
+            </div>
+            <div class="stnd-footer card-body box-shadow">
+                <!-- Small Tables -->
+                <table class="table table-sm table-nowrap">
+
+                    <tbody>
+                        <tr>
+                            <td class="table-active">Sub Total</td>
+                            <td class="right">{{def.DataObject.transactionAmount | number}}</td>
+                            <td class="table-active">Discount</td>
+                            <td class="right">{{def.DataObject.transactionDiscountAmount | number}}</td>
+                            <td class="table-active">Total</td>
+                            <td class="right">{{def.DataObject.amount | number}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

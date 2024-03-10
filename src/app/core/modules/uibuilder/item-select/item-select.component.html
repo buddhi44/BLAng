@@ -1,0 +1,26 @@
+<ng-container *ngIf="uiObject.isServerFiltering">
+    <ng-select [items]="comdoDataSource | async"
+               bindLabel="itemName"
+               [trackByFn]="trackByFn"
+               [minTermLength]="minLengthTerm"
+               [loading]="moviesLoading"
+               typeToSearchText="Please enter {{minLengthTerm}} or more characters" [typeahead]="searchInput"
+               [(ngModel)]="selectedDataItem"
+               (change)="onSelectionChange($event)">
+    </ng-select>
+</ng-container>
+
+<ng-container *ngIf="!uiObject.isServerFiltering">
+    <ng-select [items]="comdoDataSource | async"
+               bindLabel="itemName"
+               [trackByFn]="trackByFn"
+               [(ngModel)]="selectedDataItem"
+               (change)="onSelectionChange($event)">
+    </ng-select>
+</ng-container>
+
+
+
+
+
+

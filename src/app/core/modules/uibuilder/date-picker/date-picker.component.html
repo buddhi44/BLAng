@@ -1,0 +1,8 @@
+<input type="text" class="form-control"
+       mwlFlatpickr
+       [(ngModel)]="selectedDate"
+       [altInput]="true"
+       [convertModelValue]="true" 
+       [altFormat]="uiObject.format"
+       (change) ="onDateChanged($event)"
+       />

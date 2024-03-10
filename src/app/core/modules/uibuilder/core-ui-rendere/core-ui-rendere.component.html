@@ -1,0 +1,26 @@
+<div class="row">
+   
+    <ng-container *ngIf="arrHeaderSection  && arrHeaderSection.children">
+
+        <div *ngFor="let item of arrHeaderSection.children" class="col-md-{{item.width}}" id="{{item.elementType}}">
+            <div *ngIf="item.elementKey!=def.UIObjectKey" class="mb-3 {{item.parentCssClass}}">
+                <label for="{{item.elementCaption}}" class="form-label col-form-label-sm">{{item.elementCaption}}</label>
+                <app-text-box *ngIf="item.elementType==='TextBox' || item.elementType==='ReadOnlyTextBox'"
+                              [uiObject]="item" [def]="def"></app-text-box>
+
+                <app-address-select *ngIf="item.elementType==='Cmb' && item.elementID==='Address'" [uiObject]="item" [def]="def">
+                </app-address-select>
+                <app-codeBase-select *ngIf="item.elementType==='Cmb' && item.elementID==='CodeBase'" [uiObject]="item" [def]="def">
+                </app-codeBase-select>
+                <app-date-picker *ngIf="item.elementType==='DatePicker'" [uiObject]="item" [def]="def">
+                </app-date-picker>
+                <app-switch-box *ngIf="item.elementType==='CheckBox'" [uiObject]="item" [def]="def">
+                </app-switch-box>
+                <app-button  class="d-grid" *ngIf="item.elementType==='Button'" [uiObject]="item" [def]="def">
+                </app-button>
+            </div>
+        </div>
+    </ng-container>
+
+
+</div>

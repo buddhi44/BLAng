@@ -1,0 +1,19 @@
+<div  *ngIf="def.errorMessage.isShown" class="alert alert-danger alert-dismissible alert-additional fade show" role="alert">
+    <div class="alert-body">
+        <button type="button"  (click)="def.errorMessage.isShown=false;" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="d-flex">
+            <div class="flex-shrink-0 me-3">
+                <i class="ri-error-warning-line fs-16 align-middle"></i>
+            </div>
+            <div class="flex-grow-1">
+                <h5 class="alert-heading">{{def.errorMessage.headerTitle}}</h5>
+                 <ul >
+                    <li *ngFor="let error of def.errorMessage.errorMessages">
+                    {{error}}
+                    </li>
+                 </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

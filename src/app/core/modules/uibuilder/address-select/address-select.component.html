@@ -1,0 +1,27 @@
+<ng-container *ngIf="uiObject.isServerFiltering">
+    <ng-select [items]="addressRecords | async"
+               bindLabel="addressName"
+               [trackByFn]="trackByFn"
+               [minTermLength]="minLengthTerm"
+               [loading]="addressLoading"
+               typeToSearchText="Please enter {{minLengthTerm}} or more characters" [typeahead]="searchInput"
+               [(ngModel)]="selectedDataItem"
+               (change)="onSelectionChange($event)"             
+               >
+    </ng-select>
+</ng-container>
+
+<ng-container *ngIf="!uiObject.isServerFiltering">
+    <ng-select [items]="addressRecords | async"
+               bindLabel="addressName"
+               [trackByFn]="trackByFn"              
+               [(ngModel)]="selectedDataItem"
+               (change)="onSelectionChange($event)">
+    </ng-select>
+</ng-container>
+
+
+
+
+
+

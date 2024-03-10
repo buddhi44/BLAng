@@ -1,0 +1,48 @@
+
+<div class="work-area">
+    <app-ui-builder [def]="mainFormDefinitions"></app-ui-builder>   <!-- Base Examples -->
+
+
+</div>
+
+<ng-template #GenericPopUp let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalgridLabel">{{findOrderCaption}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <app-core-ui-rendere [def]="popUpDefinition"></app-core-ui-rendere>
+            <hr />
+            <!-- Small Tables -->
+            <table class="table table-sm table-nowrap">
+                <thead>
+                    <tr>
+                        <th scope="col">Order No</th>
+                        <th scope="col">Order Date</th>
+                        <th scope="col">Des</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Project</th>
+                        <th scope="col">Enterd By</th>
+                        <th  class="right" scope="col">#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="findOrderResponse && findOrderResponse.length>0">
+                        <tr *ngFor="let row of findOrderResponse">
+                            <th scope="col">{{row.orderNumber}}</th>
+                            <th scope="col">{{row.orderDate | date:'dd/MMM/yyyy'}}</th>
+                            <th scope="col">{{row.description}}</th>
+                            <th scope="col">{{row.cusSupId}} - {{row.cusSupName}} </th>
+                            <th scope="col">-</th>
+                            <th scope="col">-</th>
+                            <th scope="col" class="right"><button type="button" class="btn btn-light btn-sm">Open</button></th>
+                        </tr>
+                    </ng-container>
+          
+                </tbody>
+            </table>
+        </div>
+    </div>
+</ng-template>

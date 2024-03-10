@@ -1,0 +1,66 @@
+<!-- Small Tables -->
+<table class="table table-sm table-nowrap">
+    <thead>
+        <tr>
+            <ng-container *ngIf="gridDefinition  && gridDefinition.children">
+                <th width="{{col.width}}%" *ngFor="let col of gridDefinition.children" scope="col" class="{{col.cssClass}}">{{col.elementCaption}}</th>
+            </ng-container>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="lineItems">
+            <tr (dblclick)="selectForEdit(lineItem)" *ngFor="let lineItem of lineItems">
+                <ng-container *ngIf="def.DataObject[gridDefinition.collectionName]===lineItem;else noneditiLine">
+                    <td *ngFor="let col of gridDefinition.children" scope="col" class="no-child-border">
+
+                        <label class="form-control" *ngIf="col.elementType==='Label'">{{getProperty(lineItem,col)}}</label>
+
+                        <label class="form-control" *ngIf="col.elementType==='CalcTmpl'">{{getFunctionResult(lineItem,col)}}</label>
+                        <app-numeric-text-box *ngIf="col.elementType==='NumericBox'" [uiObject]="col" [def]="def"></app-numeric-text-box>
+
+                        <app-item-select *ngIf="col.elementType==='Cmb' && col.elementID==='Item'" [uiObject]="col" [def]="def">
+                        </app-item-select>
+                        <app-unit-select *ngIf="col.elementType==='Cmb' && col.elementID==='Unit'" [uiObject]="col" [def]="def">
+                        </app-unit-select>
+                    </td>
+                </ng-container>
+
+                <ng-template #noneditiLine>
+                    <td *ngFor="let col of gridDefinition.children" class="{{col.cssClass}}" scope="col">{{getProperty(lineItem,col)}}</td>
+                </ng-template>
+            </tr>
+        </ng-container>
+        <ng-container *ngIf="def.DataObject[gridDefinition.collectionName]">
+            <tr>
+                <td *ngFor="let col of gridDefinition.children" scope="col" class="no-child-border">
+
+                    <label class="form-control" *ngIf="col.elementType==='Label'">{{getProperty(def.DataObject[gridDefinition.collectionName],col)}}</label>
+
+                    <label class="form-control" *ngIf="col.elementType==='CalcTmpl'">{{getFunctionResult(def.DataObject[gridDefinition.collectionName],col)}}</label>
+                    <app-numeric-text-box *ngIf="col.elementType==='NumericBox'" [uiObject]="col" [def]="def"></app-numeric-text-box>
+
+                    <app-item-select *ngIf="col.elementType==='Cmb' && col.elementID==='Item'" [uiObject]="col" [def]="def">
+                    </app-item-select>
+                    <app-unit-select *ngIf="col.elementType==='Cmb' && col.elementID==='Unit'" [uiObject]="col" [def]="def">
+                    </app-unit-select>
+                </td>
+            </tr>
+        </ng-container>
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td [attr.colspan]="gridDefinition.children.length" class="">
+
+                <!-- Buttons Grid -->
+                <div class="d-grid gap-2">
+                    <button  (click)="onAddNewItemClick($event)"   type="button" class="btn btn-default bg-hover-gr10  btn-sm btn-text-left ">
+                    <i class="las la-plus-circle"></i>
+                    Add Item</button>
+              
+                </div>
+
+            </td>
+        </tr>
+    </tfoot>
+</table>
