@@ -47,7 +47,8 @@
               "src/assets/scss/config/modern/bootstrap.scss",
               "src/assets/scss/config/modern/app.scss",
               "src/assets/scss/icons.scss",
-              "node_modules/font-awesome/scss/font-awesome.scss"
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
             ],
             "scripts": [
             ],

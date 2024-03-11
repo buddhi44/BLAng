@@ -17,6 +17,8 @@ import { AppIDInterceptor } from './core/helpers/appId.interceptor';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 import { HotkeyModule } from 'angular2-hotkeys';
+import {  GridModule } from "@syncfusion/ej2-angular-grids";
+import { CommonModule } from "@angular/common";
 
 export function createTranslateLoader(http: HttpClient): any {
     return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -46,7 +48,8 @@ export function createTranslateLoader(http: HttpClient): any {
         LayoutsModule,
         PagesModule,
         NgSelectModule,
-        
+        CommonModule,
+        GridModule, 
         HotkeyModule.forRoot()
        
     ],

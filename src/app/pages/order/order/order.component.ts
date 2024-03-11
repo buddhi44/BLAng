@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation  } from '@angular/core';
-import { ActivatedRoute,RouterOutlet } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UnitComboRequest } from '../../../core/entity/Base/comboRequest';
 import { BLOrder } from '../../../core/entity/BLOrder';
 import { RateAndStockReadRequest } from '../../../core/entity/Request/rateRetrivalRequet';
@@ -13,27 +13,12 @@ import { UIObject } from '../../../core/entity/UIObject';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FindOrderRequest } from '../../../core/entity/Request/findOrderRequest';
 import { FindOrderResponse } from '../../../core/entity/Response/findOrderResponse';
-import { formatDate,CommonModule } from '@angular/common';
-import {GridAllModule , GridModule, PagerModule,PageService, FilterService, SortService, GroupService, GroupSettingsModel, ResizeService, AggregateService, EditService, GridComponent, ExcelExportService, PdfExportService, ColumnChooserService, ColumnMenuService } from '@syncfusion/ej2-angular-grids';
-import { Browser,L10n, setCulture } from '@syncfusion/ej2-base';
-
-setCulture('en-US');
-
-L10n.load({
-    'en-US': {
-        'pager': {
-            'currentPageInfo': '',
-            'totalItemsInfo': '{1} to {2} of {0}',
-        }
-    }
-});
+import { formatDate } from '@angular/common';
 
 @Component({
     selector: 'app-order',
     templateUrl: './order.component.html',
-    styleUrls: ['./order.component.scss'],
-    encapsulation: ViewEncapsulation.None,
-    providers: [PageService],
+    styleUrls: ['./order.component.scss']
 })
 export class OrderComponent extends BaseComponent implements OnInit {
 

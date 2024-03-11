@@ -4,7 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { registerLicense } from '@syncfusion/ej2-base';
-registerLicense('Ngo9BigBOggjHTQxAR8/V1NAaF1cVGhNYVZpR2Nbe051flFPal1QVAciSV9jS3pTdUVrWXxddHdRT2JYUA==');
+//registerLicense('ORg4AjUWIQA/Gnt2UVhhQlVFfVtdXGNWfFN0QXNbdVpwflZAcDwsT3RfQFljSn9Sd0FmWntcdnVVQQ==');
 if (environment.production) {
   enableProdMode();
 }
